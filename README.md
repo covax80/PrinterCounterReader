@@ -23,6 +23,7 @@
 
  Usage: cnt_reader.py [options]
 
+```
  Options:
   -M MODE, --mode=MODE  Programm mode: 'html', 'plaintext','plaintable','sql',
                         'Tk', 'csv'
@@ -48,11 +49,12 @@
   -T INTEGER, --threads=INTEGER
                         Print runtime
 
+```
 
 ## Примеры использования:
 
 1. запуск програмы c вводными данными из конфига
-	требования:
+```	требования:
 	         отредактировать  settings.ini
 			monitoring_list - список принтеров для опроса по SMNP  (данные берутся из секции [Aliases])
 			values_for_reading - параметры для считывания (либо ALL) (данные берутся из секций моделей - к примеру [hp1120])
@@ -61,29 +63,29 @@
 		cnt_reader.py -M plaintext - голые данные (особено полезны с опцией -H False (без заголовка)
 		cnt_reader.py -M csv - данные для экспорта в Excel
 		cnt_reader.py -M html - данные в формате HTML  (полезно с -F output_page.html)
-
+```
 2. запуск програмы с вводными данными из командной сроки
-	требования:
+```	требования:
 		что опрашивать и типы опрашиваемой техники были в settings.ini - нужны секции с моделями ([hp1120],...)
 	запуск:
 		cnt_reader.py -M plaintable -E printer1;hp1120;172.21.0.201,printer2;kyocer3920;172.21.0.202
-
+```
 3. запуск програмы с вводными данными из командной сроки в режиме сканирования
-	требования:
+```	требования:
 		главное чтобы принтеры в списке при их опросе сошлись с одной из signature в секциях с моделями ([hp1120],...)
 	запуск:
 		cnt_reader.py -M plaintable -S True -L 172.21.0.201,172.21.0.202,172.21.0.203 
 		cnt_reader.py -M plaintable -S True -L 172.21.0.0/24 
-
+```
 4. запуск програмы с вводом списка устройств для опроса через pipe ( | )
-	требования:
+```	требования:
 		разделять устройства либо через запятую, либо с новой строки
 	запуск:
 		type printer.list.txt | cnt_reader.py -M plaintable -I True
 		echo "printer1,printer2" | cnt_reader.py -M plaintable -I True -S True - запуск в режиме сканирования
-
+```
 5. запуск програмы для вывода конкретных параметров
-	 cnt_reader.py -M plaintable -P serialnumber_snmp_oid,pagecounter_snmp_oid
-
+```	 cnt_reader.py -M plaintable -P serialnumber_snmp_oid,pagecounter_snmp_oid
+```
 
 
